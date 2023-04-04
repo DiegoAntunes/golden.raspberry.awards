@@ -32,6 +32,12 @@ namespace golden.raspberry.awards.api
                 setup.AssumeDefaultVersionWhenUnspecified = true;
                 setup.ReportApiVersions = true;
             });
+            services.AddVersionedApiExplorer(
+                options =>
+                {
+                    options.GroupNameFormat = "'v'V";
+                    options.SubstituteApiVersionInUrl = true;
+                });
 
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddDependencies(Configuration);

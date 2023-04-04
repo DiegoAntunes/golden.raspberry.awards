@@ -24,7 +24,7 @@ git clone https://github.com/DiegoAntunes/golden.raspberry.awards.git
 
 - Utilizar o browser para chamar o recurso principal do controlador ProducerAwars:
 ```
-https://localhost:44331/api/1/producerawards
+https://localhost:44331/v1/producerawards
 ```
 - Ou utilizar a chamada diretamente pela interface do Swagger:
 ![ProducerAwards Controller](./ProducerAwards.png)
@@ -37,7 +37,7 @@ https://localhost:44331/api/1/producerawards
 
 **Endpoint:** GET
 
-**URL:** /api/1/producerawards
+**URL:** /v1/producerawards
 
 **Exemplo de resposta:**
 ```javascript

@@ -16,11 +16,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="packages.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="packages.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CsvHelper" Version="30.0.1" />
     <PackageReference Include="FluentValidation" Version="11.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.17" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Versioning">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Versioning.5.0.0\lib\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Versioning.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.5.0.0\lib\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
   </ItemGroup>
 
 </Project>

@@ -8,8 +8,7 @@ using System;
 namespace golden.raspberry.awards.api.Controllers.v1
 {
     [ApiController]
-    [Route("api/{version:apiVersion}/[controller]")]
-    [ApiVersion("1.0")]
+    [Route("v{version:apiVersion}/[controller]")]
     public class MovieAwardsController : ControllerBase
     {
         private readonly ILogger<MovieAwardsController> _logger;

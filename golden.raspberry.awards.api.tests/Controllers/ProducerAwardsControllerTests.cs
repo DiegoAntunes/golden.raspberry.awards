@@ -26,7 +26,7 @@ namespace golden.raspberry.awards.api.tests
         private AppDbContext _appDbContext;
         private SqliteConnection _sqliteConnection;
 
-        private const int ApiVersion = 1;
+        private const string ApiUrlVersion = "v1/producerawards";
 
         [SetUp]
         public void Setup()
@@ -66,7 +66,7 @@ namespace golden.raspberry.awards.api.tests
             _appDbContext.SaveChanges();
 
             //Act
-            var response = await _client.GetAsync($"/api/{ApiVersion}/producerawards");
+            var response = await _client.GetAsync($"{ApiUrlVersion}");
             response.EnsureSuccessStatusCode();
 
             var producerAwardResult = JsonConvert.DeserializeObject<ProducerAwardResult>(response.Content.ReadAsStringAsync().Result);
@@ -108,7 +108,7 @@ namespace golden.raspberry.awards.api.tests
             _appDbContext.SaveChanges();
 
             //Act
-            var response = await _client.GetAsync($"/api/{ApiVersion}/producerawards");
+            var response = await _client.GetAsync($"{ApiUrlVersion}");
             response.EnsureSuccessStatusCode();
 
             var producerAwardResult = JsonConvert.DeserializeObject<ProducerAwardResult>(response.Content.ReadAsStringAsync().Result);
@@ -144,7 +144,7 @@ namespace golden.raspberry.awards.api.tests
             _appDbContext.SaveChanges();
 
             //Act
-            var response = await _client.GetAsync($"/api/{ApiVersion}/producerawards");
+            var response = await _client.GetAsync($"{ApiUrlVersion}");
             response.EnsureSuccessStatusCode();
 
             var producerAwardResult = JsonConvert.DeserializeObject<ProducerAwardResult>(response.Content.ReadAsStringAsync().Result);
@@ -163,7 +163,7 @@ namespace golden.raspberry.awards.api.tests
             var expectedCount = 0;
 
             //Act
-            var response = await _client.GetAsync($"/api/{ApiVersion}/producerawards");
+            var response = await _client.GetAsync($"{ApiUrlVersion}");
             response.EnsureSuccessStatusCode();
 
             var producerAwardResult = JsonConvert.DeserializeObject<ProducerAwardResult>(response.Content.ReadAsStringAsync().Result);
@@ -195,7 +195,7 @@ namespace golden.raspberry.awards.api.tests
             _appDbContext.SaveChanges();
 
             //Act
-            var response = await _client.GetAsync($"/api/{ApiVersion}/producerawards");
+            var response = await _client.GetAsync($"{ApiUrlVersion}");
             response.EnsureSuccessStatusCode();
 
             var producerAwardResult = JsonConvert.DeserializeObject<ProducerAwardResult>(response.Content.ReadAsStringAsync().Result);
@@ -227,7 +227,7 @@ namespace golden.raspberry.awards.api.tests
             _appDbContext.SaveChanges();
 
             //Act
-            var response = await _client.GetAsync($"/api/{ApiVersion}/producerawards");
+            var response = await _client.GetAsync($"{ApiUrlVersion}");
             response.EnsureSuccessStatusCode();
 
             var producerAwardResult = JsonConvert.DeserializeObject<ProducerAwardResult>(response.Content.ReadAsStringAsync().Result);
@@ -263,7 +263,7 @@ namespace golden.raspberry.awards.api.tests
             _appDbContext.SaveChanges();
 
             //Act
-            var response = await _client.GetAsync($"/api/{ApiVersion}/producerawards");
+            var response = await _client.GetAsync($"{ApiUrlVersion}");
             response.EnsureSuccessStatusCode();
 
             var producerAwardResult = JsonConvert.DeserializeObject<ProducerAwardResult>(response.Content.ReadAsStringAsync().Result);
@@ -305,7 +305,7 @@ namespace golden.raspberry.awards.api.tests
             _appDbContext.SaveChanges();
 
             //Act
-            var response = await _client.GetAsync($"/api/{ApiVersion}/producerawards");
+            var response = await _client.GetAsync($"{ApiUrlVersion}");
             response.EnsureSuccessStatusCode();
 
             var producerAwardResult = JsonConvert.DeserializeObject<ProducerAwardResult>(response.Content.ReadAsStringAsync().Result);
@@ -344,7 +344,7 @@ namespace golden.raspberry.awards.api.tests
             _appDbContext.SaveChanges();
 
             //Act
-            var response = await _client.GetAsync($"/api/{ApiVersion}/producerawards");
+            var response = await _client.GetAsync($"{ApiUrlVersion}");
             response.EnsureSuccessStatusCode();
 
             var producerAwardResult = JsonConvert.DeserializeObject<ProducerAwardResult>(response.Content.ReadAsStringAsync().Result);
