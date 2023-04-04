@@ -2,9 +2,9 @@
 Projeto Web API RESTful nível 2 com base no modelo Richardson de maturidade.
 
 # Objetivo do projeto
-- Ler uma arquivo CSV, armazenar informações em um banco de dados embarcado na memória.
+- Ler um arquivo CSV, armazenar informações em um banco de dados embarcado na memória.
 - Obter o produtor com maior intervalo entre dois prêmios consecutivos.
-- Obter o produtor que obteve dois prêmios mais rápidamente.
+- Obter o produtor que obteve dois prêmios mais rapidamente.
 
 ### Desenvolvido com
 - Microsoft Visual Studio Community 2019 - IDE
@@ -17,7 +17,7 @@ Projeto Web API RESTful nível 2 com base no modelo Richardson de maturidade.
 ## Execução do projeto
 Clonar repositório
 ```
-git clone https://github.com/
+git clone https://github.com/DiegoAntunes/golden.raspberry.awards.git
 ```
 - Abrir a solução 'golden.raspberry.awards.sln' em sua IDE.
 - Compilar e executar a solução.
@@ -57,6 +57,6 @@ curl https://localhost:44331/producerawards
 }
 ```
 
-## Recursos disponiveis
+## Recursos disponíveis
 
 ![SwaggerResources](./SwaggerResources.png)
