@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		SwaggerResources.png = SwaggerResources.png
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "golden.raspberry.awards.api.tests", "golden.raspberry.awards.api.tests\golden.raspberry.awards.api.tests.csproj", "{55B9D787-55D5-4EBB-B5F7-CDAD346D5848}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{6D5D6967-9D6D-47DF-A8CC-6899D4444458}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D5D6967-9D6D-47DF-A8CC-6899D4444458}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D5D6967-9D6D-47DF-A8CC-6899D4444458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55B9D787-55D5-4EBB-B5F7-CDAD346D5848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55B9D787-55D5-4EBB-B5F7-CDAD346D5848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55B9D787-55D5-4EBB-B5F7-CDAD346D5848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55B9D787-55D5-4EBB-B5F7-CDAD346D5848}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
