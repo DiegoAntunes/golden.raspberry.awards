@@ -28,6 +28,8 @@ namespace golden.raspberry.awards.api.tests.Controllers
         private AppDbContext _appDbContext;
         private SqliteConnection _sqliteConnection;
 
+        private const int ApiVersion = 1;
+
         [OneTimeSetUp]
         public void OnTypeSetup()
         {
@@ -63,7 +65,7 @@ namespace golden.raspberry.awards.api.tests.Controllers
             var expectedCount = 206;
 
             //Act
-            var response = await _client.GetAsync("/movieawards");
+            var response = await _client.GetAsync($"/api/{ApiVersion}/movieawards");
             response.EnsureSuccessStatusCode();
 
             var movieAwardNominations = JsonConvert.DeserializeObject<List<MovieAwardNomination>>(response.Content.ReadAsStringAsync().Result);
@@ -76,7 +78,7 @@ namespace golden.raspberry.awards.api.tests.Controllers
         public async Task Quando_BuscarPorIdNaoExistente_Deve_Retornar_NuloECodigoSemConteudo()
         {
             //Act
-            var response = await _client.GetAsync("/movieawards/500");
+            var response = await _client.GetAsync($"/api/{ApiVersion}/movieawards/500");
             response.EnsureSuccessStatusCode();
 
             var movieAwardNomination = JsonConvert.DeserializeObject<MovieAwardNomination>(response.Content.ReadAsStringAsync().Result);
@@ -93,7 +95,7 @@ namespace golden.raspberry.awards.api.tests.Controllers
             var expectedId = 8;
 
             //Act
-            var response = await _client.GetAsync("/movieawards/8");
+            var response = await _client.GetAsync($"/api/{ApiVersion}/movieawards/8");
             response.EnsureSuccessStatusCode();
 
             var movieAwardNomination = JsonConvert.DeserializeObject<MovieAwardNomination>(response.Content.ReadAsStringAsync().Result);
@@ -109,7 +111,7 @@ namespace golden.raspberry.awards.api.tests.Controllers
             //Arrange
 
             //Act
-            var response = await _client.GetAsync("/movieawards/0");
+            var response = await _client.GetAsync($"/api/{ApiVersion}/movieawards/0");
 
             //Assert
             response.StatusCode.Should().Be(HttpStatusCode.NotFound);
@@ -129,7 +131,7 @@ namespace golden.raspberry.awards.api.tests.Controllers
             var content = new StringContent(manJson, Encoding.UTF8, "application/json");
 
             //Act
-            var response = await _client.PostAsync("/movieawards", content);
+            var response = await _client.PostAsync($"/api/{ApiVersion}/movieawards", content);
             response.EnsureSuccessStatusCode();
 
             var result = response.Content.ReadAsStringAsync().Result;
@@ -154,7 +156,7 @@ namespace golden.raspberry.awards.api.tests.Controllers
             var content = new StringContent(manJson, Encoding.UTF8, "application/json");
 
             //Act
-            var response = await _client.PutAsync("/movieawards", content);
+            var response = await _client.PutAsync($"/api/{ApiVersion}/movieawards", content);
             response.EnsureSuccessStatusCode();
 
             var movieAwardNominationResult = JsonConvert.DeserializeObject<MovieAwardNomination>(response.Content.ReadAsStringAsync().Result);
@@ -175,7 +177,7 @@ namespace golden.raspberry.awards.api.tests.Controllers
             //Arrange
 
             //Act
-            var response = await _client.DeleteAsync("/movieawards/1");
+            var response = await _client.DeleteAsync($"/api/{ApiVersion}/movieawards/1");
             response.EnsureSuccessStatusCode();
 
             //Assert
