@@ -52,7 +52,7 @@ namespace golden.raspberry.awards.api.tests
         }
 
         [Test]
-        public async Task Quando_ProcessarMassaDeDadosOriginal_Deve_Retornar_MinMaxIgualAUmEProdutorBoDerekNoMaxEMin()
+        public async Task Quando_ProcessarMassaDeDadosOriginal_Deve_Retornar_MinIgualUmEMaxIgualTreze()
         {
             //Arrange
             var expectedCount = 1;
