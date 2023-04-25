@@ -43,23 +43,27 @@ namespace golden.raspberry.awards.api.Application.Services
         {
             var movieAwards = _baseRepository.Select();
             var producerNominations = new Dictionary<string, List<ProducerNomination>>();
-            
+
             //Cria um dicionário onde a chave é o produtor
             //Com a lista de nomeações contendo o ano de participação e se foi vencedor do prêmio.
             foreach (var movieAward in movieAwards)
             {
-                var producer = movieAward.Producer;
-                var year = movieAward.Year;
-                var isWinner = movieAward.Winner.Equals("yes", StringComparison.OrdinalIgnoreCase) ? true : false;
-                if (!producerNominations.ContainsKey(producer))
+                var producers = movieAward.Producer.Replace(" and ", ",").Split(",");
+                foreach (var pItem in producers)
                 {
-                    producerNominations[producer] = new List<ProducerNomination>();
+                    var producer = pItem.Trim();
+                    var year = movieAward.Year;
+                    var isWinner = movieAward.Winner.Equals("yes", StringComparison.OrdinalIgnoreCase) ? true : false;
+                    if (!producerNominations.ContainsKey(producer))
+                    {
+                        producerNominations[producer] = new List<ProducerNomination>();
+                    }
+                    producerNominations[producer].Add(new ProducerNomination()
+                    {
+                        Year = year,
+                        IsWinner = isWinner
+                    });
                 }
-                producerNominations[producer].Add(new ProducerNomination()
-                {
-                    Year = year,
-                    IsWinner = isWinner
-                });
             }
 
             return producerNominations;

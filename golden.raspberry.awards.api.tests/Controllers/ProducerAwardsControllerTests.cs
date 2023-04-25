@@ -56,10 +56,16 @@ namespace golden.raspberry.awards.api.tests
         {
             //Arrange
             var expectedCount = 1;
-            var expectedProducer = "Bo Derek";
-            var expectedInterval = 6;
-            var expectedPreviusWin = 1984;
-            var expectedFollowingWin = 1990;
+
+            var expectedMinProducer = "Joel Silver";
+            var expectedMinInterval = 1;
+            var expectedMinPreviusWin = 1990;
+            var expectedMinFollowingWin = 1991;
+
+            var expectedMaxProducer = "Matthew Vaughn";
+            var expectedMaxInterval = 13;
+            var expectedMaxPreviusWin = 2002;
+            var expectedMaxFollowingWin = 2015;
 
             var movieAwards = SeedHelper.GetMovieAwardNominations(";", ".\\Resources\\movielist.csv");
             _appDbContext.MovieAwardNominations.AddRange(movieAwards);
@@ -72,16 +78,17 @@ namespace golden.raspberry.awards.api.tests
             var producerAwardResult = JsonConvert.DeserializeObject<ProducerAwardResult>(response.Content.ReadAsStringAsync().Result);
 
             //Assert
-            producerAwardResult.Max.Count.Should().Be(expectedCount);
             producerAwardResult.Min.Count.Should().Be(expectedCount);
-            producerAwardResult.Max[0].Producer.Should().Be(expectedProducer);
-            producerAwardResult.Max[0].Interval.Should().Be(expectedInterval);
-            producerAwardResult.Max[0].PreviusWin.Should().Be(expectedPreviusWin);
-            producerAwardResult.Max[0].FollowingWin.Should().Be(expectedFollowingWin);
-            producerAwardResult.Min[0].Producer.Should().Be(expectedProducer);
-            producerAwardResult.Min[0].Interval.Should().Be(expectedInterval);
-            producerAwardResult.Min[0].PreviusWin.Should().Be(expectedPreviusWin);
-            producerAwardResult.Min[0].FollowingWin.Should().Be(expectedFollowingWin);
+            producerAwardResult.Min[0].Producer.Should().Be(expectedMinProducer);
+            producerAwardResult.Min[0].Interval.Should().Be(expectedMinInterval);
+            producerAwardResult.Min[0].PreviusWin.Should().Be(expectedMinPreviusWin);
+            producerAwardResult.Min[0].FollowingWin.Should().Be(expectedMinFollowingWin);
+
+            producerAwardResult.Max.Count.Should().Be(expectedCount);
+            producerAwardResult.Max[0].Producer.Should().Be(expectedMaxProducer);
+            producerAwardResult.Max[0].Interval.Should().Be(expectedMaxInterval);
+            producerAwardResult.Max[0].PreviusWin.Should().Be(expectedMaxPreviusWin);
+            producerAwardResult.Max[0].FollowingWin.Should().Be(expectedMaxFollowingWin);
         }
 
         [Test]
